@@ -1,10 +1,10 @@
-const Square= ({id}) => {
-  //keep track of state of square
+const Square= ({id, player}) => {
+  const palet = ["blue", "red", "green"];
+  const getRandomColor =()=> palet[Math.floor(Math.random()*3)];
   return (
   //change color of square onclick
-    <button onClick ={(e)=>{
-      e.target.style.background = "red";
-
+    <button onClick ={e => {
+      e.target.style.background = getRandomColor;
     }}>
       <h1>{id}</h1>
     </button>
@@ -25,7 +25,7 @@ const Board = () => {
         {renderSquare(2)}
       </div>
       <div id="info">
-        <h1>{status}</h1>
+        <h1>Turn of player {player}</h1>
       </div>
     </div>
   );

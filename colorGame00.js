@@ -1,7 +1,14 @@
 const Square= ({id}) => {
-  return <button>
-    <h1>{id}</h1>
+  //keep track of state of square
+  return (
+  //change color of square onclick
+    <button onClick ={(e)=>{
+      e.target.style.background = "red";
+
+    }}>
+      <h1>{id}</h1>
     </button>
+  );
 };
 
 const Board = () => {

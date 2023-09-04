@@ -68,7 +68,8 @@ const Square = ({ id, player }) => {
 
 const Board = () => {
   const [player, setPlayer] = React.useState(1);
-
+  const [mounted, setMounted] = React.useState(true);
+  const toggle =()=> setMounted(!mounted);
   function renderSquare(i){
     return <Square id={i} player={player} />;
   }
@@ -76,11 +77,12 @@ const Board = () => {
   return (
     <div className="game-board" onClick={() => { setPlayer(player === 1 ? 2 : 1); }}>
       <div className="grid-row">
-        {renderSquare(0)}
-        {renderSquare(1)}
-        {renderSquare(2)}
+        {mounted && renderSquare(0)}
+        {mounted && renderSquare(1)}
+        {mounted && renderSquare(2)}
       </div>
       <div id="info">
+      <button onClick={toggle}>Show/Hide Row</button>
         <h1>Turn of player {player}</h1>
       </div>
     </div>
